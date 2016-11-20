@@ -73,6 +73,9 @@
     <Compile Include="Actors\EchoActor.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Helper.cs" />
+    <Compile Include="Implementation\CommandEchoImpl.cs" />
+    <Compile Include="Implementation\ConsoleEchoImpl.cs" />
+    <Compile Include="Implementation\EchoImpl.cs" />
     <Compile Include="Messages\BroadcastMessage.cs" />
     <Compile Include="Messages\CreateInvitationMessage.cs" />
     <Compile Include="Messages\RejectInvitationMessage.cs" />
@@ -90,6 +93,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -19,3 +19,24 @@ c:\users\maisie\documents\visual studio 2015\Projects\Cluster\Cluster\obj\Debug\
 c:\users\maisie\documents\visual studio 2015\Projects\Cluster\Cluster\obj\Debug\Cluster.pdb
 c:\users\maisie\documents\visual studio 2015\Projects\Cluster\Cluster\bin\Debug\Models.dll
 c:\users\maisie\documents\visual studio 2015\Projects\Cluster\Cluster\bin\Debug\Models.pdb
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\Cluster.exe.config
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\obj\Debug\Cluster.exe
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\obj\Debug\Cluster.pdb
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\obj\Debug\Cluster.csprojResolveAssemblyReference.cache
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\Cluster.exe
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\Cluster.pdb
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\Akka.dll
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\Akka.Remote.dll
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\Google.ProtocolBuffers.dll
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\Google.ProtocolBuffers.Serialization.dll
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\Helios.dll
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\Models.dll
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\System.Collections.Immutable.dll
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\Models.pdb
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\Akka.xml
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\Akka.Remote.xml
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\Google.ProtocolBuffers.xml
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\Google.ProtocolBuffers.Serialization.xml
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Cluster\bin\Debug\System.Collections.Immutable.xml

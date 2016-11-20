@@ -61,7 +61,6 @@ namespace Models.Actors
             });
             Receive<CreateInvitationMessage>(cim =>
             {
-                var sender = Context;
                 ModelHelper.CreateInvitation(currentCluster.Clone(), Self, cim);
                 Debug("Invitation created, invitation.config");
             });

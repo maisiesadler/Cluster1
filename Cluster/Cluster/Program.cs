@@ -1,13 +1,6 @@
-﻿using Akka.Actor;
-using Akka.Configuration;
-using Models;
-using Models.Actors;
-using Models.Messages;
+﻿using Models;
+using Models.Implementation;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cluster
 {
@@ -26,42 +19,20 @@ namespace Cluster
             //Helper.SerializeConfig("cluster.config", cc);
 
             var conf = Helper.DeserializeConfig("cluster.config");
-            var config = Helper.GetConfig(conf);
+            Console.WriteLine("Type username");
+            var un = Console.ReadLine();
 
-            var un = "echo";
-            using (var system = ActorSystem.Create("UserOne", config))
+            using (var echoImpl = new ConsoleEchoImpl(conf, un))
             {
-                var echo = system.ActorOf(Props.Create(() => new ConsoleEcho(un)), "Echo");
-                Console.ReadKey();
-
                 var invitation = Helper.TryReadInvitation();
                 if (invitation != null)
                 {
-                    var i = new Invitation(invitation.InvitationKey, un);
-                    echo.Tell(new SignIn(i, invitation.InvitationAddress));
-
-                    while (true)
-                    {
-                        var msg = Console.ReadLine();
-                        echo.Tell(new EncMessage(msg));
-                    }
+                    echoImpl.UseInvitation(invitation);
                 }
                 else
                 {
-                    Console.WriteLine("Invitation missing or invalid, create new cluster? (Y/N)");
-
-                    var k = Console.ReadKey();
-                    if (k.Key == ConsoleKey.Y)
-                    {
-                        echo.Tell(new CreateClusterMessage("Big fat cluster"));
-                        echo.Tell(new CreateInvitationMessage(conf));
-
-                        while (true)
-                        {
-                            var msg = Console.ReadLine();
-                            echo.Tell(new EncMessage(msg));
-                        }
-                    }
+                    Console.WriteLine("Invitation missing or invalid.");
+                    echoImpl.TryCreateNewCluster();
                 }
             }
         }

@@ -14,7 +14,6 @@ namespace Models
     {
         internal static void CreateInvitation(CurrentCluster cluster, IActorRef actor, CreateInvitationMessage cim)
         {
-            
             var i = new ClusterInvitation { InvitationAddress = ActorRefToString(actor, cim), InvitationKey = cluster.Key };
             var json = JsonConvert.SerializeObject(i);
             File.WriteAllText("invitation.config", json);
