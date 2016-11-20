@@ -75,5 +75,10 @@ namespace Models.Implementation
                 Begin();
             }
         }
+
+        protected override void ShowInvitation()
+        {
+            Console.WriteLine(GetInvitation());
+        }
     }
 }

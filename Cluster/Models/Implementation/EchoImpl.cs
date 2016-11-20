@@ -40,7 +40,7 @@ namespace Models.Implementation
             _echo.Tell(new CreateClusterMessage("Big fat cluster"));
             CreateInvitation();
         }
-
+        
         protected void CreateInvitation()
         {
             _echo.Tell(new CreateInvitationMessage(_clusterConfig));

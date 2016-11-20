@@ -32,3 +32,4 @@ C:\Users\Maisie\Source\Repos\Cluster\Cluster\Models\bin\Debug\Newtonsoft.Json.xm
 C:\Users\Maisie\Source\Repos\Cluster\Cluster\Models\bin\Debug\System.Collections.Immutable.xml
 C:\Users\Maisie\Source\Repos\Cluster\Cluster\Models\obj\Debug\Models.dll
 C:\Users\Maisie\Source\Repos\Cluster\Cluster\Models\obj\Debug\Models.pdb
+C:\Users\Maisie\Source\Repos\Cluster\Cluster\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache

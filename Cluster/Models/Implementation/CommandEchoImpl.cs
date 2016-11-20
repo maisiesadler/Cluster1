@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.Models;
+using System;
 using System.Collections.Generic;
 
 namespace Models.Implementation
@@ -8,6 +9,7 @@ namespace Models.Implementation
         public CommandEchoImpl(ClusterConfig systemConfig, string username) : base(systemConfig, username)
         {
             _commands.Add("/ci", CreateInvitation);
+            _commands.Add("/inv", ShowInvitation);
         }
 
         private Dictionary<string, Action> _commands = new Dictionary<string, Action>();
@@ -22,5 +24,15 @@ namespace Models.Implementation
 
             return false;
         }
+
+
+        #region Commands
+        protected ClusterInvitation GetInvitation()
+        {
+            var invitation = Helper.TryReadInvitation();
+            return invitation;
+        }
+        protected abstract void ShowInvitation();
+        #endregion
     }
 }

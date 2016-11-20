@@ -10,5 +10,10 @@ namespace Models.Models
     {
         public string InvitationAddress { get; set; }
         public string InvitationKey { get; set; }
+
+        public override string ToString()
+        {
+            return $"Address: {InvitationAddress}. Key: {InvitationKey}.";
+        }
     }
 }
