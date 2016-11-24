@@ -12,7 +12,7 @@ namespace Cluster2
             Console.WriteLine("Type username");
             var un = Console.ReadLine();
 
-            using (var echoImpl = new ConsoleEchoImpl(conf, un))
+            using (var echoImpl = new ConsoleEchoImpl(conf, un, Console.WriteLine))
             {
                 var invitation = Helper.TryReadInvitation();
                 if (invitation != null)

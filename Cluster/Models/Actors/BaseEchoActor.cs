@@ -9,8 +9,10 @@ namespace Models.Actors
     {
         private CurrentCluster currentCluster;
         private Echo thisUser;
-        protected BaseEchoActor(string username)
+        protected Action<string> _writeMessage;
+        public BaseEchoActor(string username, Action<string> writeMessage)
         {
+            _writeMessage = writeMessage;
             thisUser = new Echo(username, Self);
             Ready();
         }
@@ -64,6 +66,10 @@ namespace Models.Actors
                 ModelHelper.CreateInvitation(currentCluster.Clone(), Self, cim);
                 Debug("Invitation created, invitation.config");
             });
+            Receive<LogoutMessage>(m =>
+            {
+                
+            });
         }
 
         protected override void Unhandled(object message)
@@ -80,7 +86,7 @@ namespace Models.Actors
             });
             Receive<SignedIn>(si =>
             {
-                Debug("Got signed in message");
+                MyInvitationAccepted();
                 currentCluster = si.Cluster;
                 Become(SignedIn);
             });
@@ -98,9 +104,12 @@ namespace Models.Actors
         }
 
         protected abstract void MyInvitationRejected();
-
+        protected abstract void MyInvitationAccepted();
         protected abstract void Debug(string msg);
-        protected abstract void WriteMessage(string msg);
+        protected void WriteMessage(string msg)
+        {
+            _writeMessage(msg);
+        }
         protected abstract void InvitationReceivedMsg(Invitation invitation, bool decision);
     }
 }

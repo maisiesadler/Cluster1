@@ -1,5 +1,6 @@
 ﻿using Akka.Configuration;
 using System.IO;
+using System;
 using Newtonsoft.Json;
 using Models.Models;
 
@@ -72,6 +73,27 @@ akka {
                 return invitation;
             }
             return null;
+        }
+
+        public static void SetInvitation(ClusterInvitation invitation)
+        {
+            var fp = "invitation.config";
+            var jsonInv = JsonConvert.SerializeObject(invitation, Formatting.Indented);
+            File.WriteAllText(fp, jsonInv);
+        }
+
+        public static void SetInvitation(string jsonInvitation)
+        {
+            var fp = "invitation.config";
+            var invitation = JsonConvert.DeserializeObject<ClusterInvitation>(jsonInvitation);
+            if (invitation != null)
+            {
+                File.WriteAllText(fp, jsonInvitation);
+            }
+            else
+            {
+                throw new Exception("Invalid invitation");
+            }
         }
     }
 }

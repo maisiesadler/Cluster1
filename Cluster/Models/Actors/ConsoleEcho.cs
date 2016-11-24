@@ -11,7 +11,7 @@ namespace Models.Actors
 {
     public class ConsoleEcho : BaseEchoActor
     {
-        public ConsoleEcho(string username) : base(username)
+        public ConsoleEcho(string username, Action<string> writeMessage) : base(username, writeMessage)
         {
         }
 
@@ -25,14 +25,14 @@ namespace Models.Actors
             Console.WriteLine("Received invitation from " + invitation.Username + ", " + (decision ? "accepted" : "rejected"));
         }
 
+        protected override void MyInvitationAccepted()
+        {
+            Debug("Inv accepted");
+        }
+
         protected override void MyInvitationRejected()
         {
             Console.WriteLine("Invitation rejected");
-        }
-
-        protected override void WriteMessage(string msg)
-        {
-            Console.WriteLine(msg);
         }
     }
 }

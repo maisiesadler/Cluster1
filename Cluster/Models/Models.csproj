@@ -60,6 +60,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -78,6 +79,7 @@
     <Compile Include="Implementation\EchoImpl.cs" />
     <Compile Include="Messages\BroadcastMessage.cs" />
     <Compile Include="Messages\CreateInvitationMessage.cs" />
+    <Compile Include="Messages\LogoutMessage.cs" />
     <Compile Include="Messages\RejectInvitationMessage.cs" />
     <Compile Include="ModelHelper.cs" />
     <Compile Include="Models\ClusterInvitation.cs" />

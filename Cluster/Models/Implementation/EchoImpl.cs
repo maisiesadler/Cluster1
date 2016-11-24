@@ -12,14 +12,20 @@ namespace Models.Implementation
         protected ActorSystem _system;
         protected readonly string _username;
         protected ClusterConfig _clusterConfig;
+        protected Action<string> _writeMessage;
+        protected object _p;
 
-        protected EchoImpl(ClusterConfig clusterConfig, string username)
+        protected EchoImpl(ClusterConfig clusterConfig, string username, Action<string> writeMessage, object p = null)
         {
             _username = username;
+            _writeMessage = writeMessage;
             _clusterConfig = clusterConfig;
             var config = Helper.GetConfig(clusterConfig);
+            CodeToRunBeforeCreatingActor(p);
             CreateActorSystemUsingConfig(config);
         }
+
+        protected abstract void CodeToRunBeforeCreatingActor(object p);
 
         protected void CreateActorSystemUsingConfig(Config systemConfig)
         {
@@ -48,10 +54,13 @@ namespace Models.Implementation
 
         public void SendMessage(string msg)
         {
-            _echo.Tell(new EncMessage(msg));
+            if (!string.IsNullOrWhiteSpace(msg))
+            {
+                _echo.Tell(new EncMessage(msg));
+            }
         }
 
-        protected abstract string GetMessage();
+        public abstract void Begin();
 
         public void Dispose()
         {

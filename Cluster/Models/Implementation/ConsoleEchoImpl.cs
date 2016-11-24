@@ -7,21 +7,17 @@ namespace Models.Implementation
 {
     public class ConsoleEchoImpl : CommandEchoImpl
     {
-        public ConsoleEchoImpl(ClusterConfig config, string username) : base(config, username)
+        public ConsoleEchoImpl(ClusterConfig config, string username, Action<string> writeMessage)
+            : base(config, username, writeMessage)
         {
-        }
-
-        protected override string GetMessage()
-        {
-            return Console.ReadLine();
         }
 
         protected override void CreateEcho()
         {
-            _echo = _system.ActorOf(Props.Create(() => new ConsoleEcho(_username)), "Echo");
+            _echo = _system.ActorOf(Props.Create(() => new ConsoleEcho(_username, _writeMessage)), "Echo");
         }
 
-        public void Begin()
+        public override void Begin()
         {
             while (true)
             {
@@ -79,6 +75,11 @@ namespace Models.Implementation
         protected override void ShowInvitation()
         {
             Console.WriteLine(GetInvitation());
+        }
+
+        protected override void CodeToRunBeforeCreatingActor(object p)
+        {
+            
         }
     }
 }

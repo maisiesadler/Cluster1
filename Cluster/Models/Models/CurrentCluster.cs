@@ -31,7 +31,10 @@ namespace Models.Models
 
         public void AddUser(Echo user)
         {
-            _users.Add(user.Username, user.ActorRef);
+            if (!_users.ContainsKey(user.Username))
+            {
+                _users.Add(user.Username, user.ActorRef);
+            }
         }
 
         public string GetUsername(IActorRef actorRef)
@@ -45,7 +48,7 @@ namespace Models.Models
             }
             return "Unknown";
         }
-        
+
         private void CreateKey()
         {
             if (string.IsNullOrEmpty(Key))

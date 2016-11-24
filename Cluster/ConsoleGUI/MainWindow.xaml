@@ -1,0 +1,29 @@
+﻿<Window x:Class="ConsoleGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConsoleGUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid x:Name="MainGrid">
+        <TextBox x:Name="conversationWindow" Height="251" TextWrapping="Wrap" VerticalAlignment="Top" Margin="100,0,0,0" IsReadOnly="True"/>
+        <TextBox x:Name="inputTextbox" Height="29" TextWrapping="Wrap" VerticalAlignment="Top" Margin="100,256,0,0" KeyUp="inputTextbox_KeyUp">
+            <ToolTipService.ToolTip>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="toolTipKeys" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="2" x:Name="toolTipDesc"/>
+                </Grid>
+
+            </ToolTipService.ToolTip>
+
+        </TextBox>
+        <Button x:Name="sendMsgButton" Content="Send" Click="button_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="432,290,0,0"/>
+        <Button x:Name="loginButton" Content="Log In" Click="loginButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,10,0,0"/>
+
+    </Grid>
+</Window>
